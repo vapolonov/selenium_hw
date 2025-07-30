@@ -1,0 +1,11 @@
+F:\my_projects\otus\selenium_hw\src\main\java\annotations\Path.java
+F:\my_projects\otus\selenium_hw\src\main\java\commons\AbsCommon.java
+F:\my_projects\otus\selenium_hw\src\main\java\exceptions\BrowserNotSupportedException.java
+F:\my_projects\otus\selenium_hw\src\main\java\exceptions\PathPageNotFoundException.java
+F:\my_projects\otus\selenium_hw\src\main\java\extensions\UIExtension.java
+F:\my_projects\otus\selenium_hw\src\main\java\factory\settings\ChromeSettings.java
+F:\my_projects\otus\selenium_hw\src\main\java\factory\settings\ISettings.java
+F:\my_projects\otus\selenium_hw\src\main\java\factory\WebDriverFactory.java
+F:\my_projects\otus\selenium_hw\src\main\java\modules\PageGuiceModule.java
+F:\my_projects\otus\selenium_hw\src\main\java\pages\AbsBasePage.java
+F:\my_projects\otus\selenium_hw\src\main\java\pages\CatalogPage.java

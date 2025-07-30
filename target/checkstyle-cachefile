@@ -1,0 +1,15 @@
+#Wed Jul 30 23:21:03 MSK 2025
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\annotations\\Path.java=1753885025655
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\commons\\AbsCommon.java=1753892733296
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\exceptions\\BrowserNotSupportedException.java=1753854545374
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\exceptions\\PathPageNotFoundException.java=1753887524461
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\extensions\\UIExtension.java=1753906843832
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\factory\\WebDriverFactory.java=1753887753870
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\factory\\settings\\ChromeSettings.java=1753893097937
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\factory\\settings\\ISettings.java=1753854158017
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\modules\\PageGuiceModule.java=1753889249642
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\modules\\WebDriverGuiceModule.java=1753903938801
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\pages\\AbsBasePage.java=1753885025669
+F\:\\my_projects\\otus\\selenium_hw\\src\\main\\java\\pages\\CatalogPage.java=1753885059649
+F\:\\my_projects\\otus\\selenium_hw\\src\\test\\java\\tests\\CatalogTest.java=1753906281017
+configuration*?=A3AB86561BAE1E54E122647394203B634FBBFC11
