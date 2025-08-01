@@ -26,6 +26,8 @@ public abstract class AbsBasePage<T> extends AbsCommon {
 
   public T open() {
     driver.get(baseUrl + getPath());
+    waiter.waitUntilPageIsReady();
+    waiter.waitForJQueryCompletes();
     return (T) this;
   }
 }

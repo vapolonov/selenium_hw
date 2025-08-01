@@ -22,7 +22,7 @@
     <mavencheckstyle.version>3.6.0</mavencheckstyle.version>
     <assertj.version>3.27.3</assertj.version>
     <base.url>https://otus.ru</base.url>
-    <waiter.timeout>5</waiter.timeout>
+    <timeout>10</timeout>
   </properties>
 
   <dependencies>
@@ -73,6 +73,7 @@
         <configuration>
           <systemPropertyVariables>
             <base.url>${base.url}</base.url>
+            <waiter.timeout>${timeout}</waiter.timeout>
           </systemPropertyVariables>
         </configuration>
       </plugin>

@@ -6,6 +6,7 @@ import com.google.inject.Singleton;
 import factory.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import pages.CatalogPage;
+import pages.CoursePage;
 
 public class PageGuiceModule extends AbstractModule {
 
@@ -19,5 +20,11 @@ public class PageGuiceModule extends AbstractModule {
   @Singleton
   public CatalogPage getCatalogPage() {
     return new CatalogPage(driver);
+  }
+
+  @Provides
+  @Singleton
+  public CoursePage getCoursePage() {
+    return new CoursePage(driver);
   }
 }
