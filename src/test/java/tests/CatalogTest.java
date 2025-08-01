@@ -18,9 +18,11 @@ public class CatalogTest {
 
   @Test
   public void courseShouldFindByNameInCatalog() {
+    String courseName = "Java QA Engineer. Professional";
+    String searchQuery = "Java";
     catalogPage.open()
-        .searchCourse("Java QA")
-        .selectCourse("Java QA Engineer. Professional");
-
+        .searchCourse(searchQuery)
+        .selectCourse(courseName);
+    coursePage.checkCourseTitle(courseName);
   }
 }
