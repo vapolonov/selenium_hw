@@ -3,10 +3,11 @@ package modules;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
-import factory.WebDriverFactory;
+import listeners.MouseListener;
 import org.openqa.selenium.WebDriver;
 import pages.CatalogPage;
 import pages.CoursePage;
+import pages.MainPage;
 
 public class PageGuiceModule extends AbstractModule {
 
@@ -27,4 +28,17 @@ public class PageGuiceModule extends AbstractModule {
   public CoursePage getCoursePage() {
     return new CoursePage(driver);
   }
+
+  @Provides
+  @Singleton
+  public MainPage getMainPage() {
+    return new MainPage(driver);
+  }
+
+  @Provides
+  @Singleton
+  public MouseListener getMouseListener() {
+    return new MouseListener();
+  }
+
 }

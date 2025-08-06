@@ -3,7 +3,6 @@ package waiters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +20,15 @@ public class Waiters {
   public Waiters getWaitDriver() {
     wait = new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(System.getProperty("waiter.timeout"))));
     return this;
+  }
+
+  public boolean waitForCondition(ExpectedCondition condition) {
+    try {
+      wait.until(condition);
+      return true;
+    } catch (Exception ignored) {
+      return false;
+    }
   }
 
   public void waitUntilPageIsReady() {
@@ -46,15 +54,9 @@ public class Waiters {
     });
   }
 
-  public void waitForElementVisible(WebElement element) {
-    wait.until(ExpectedConditions.visibilityOf(element));
-  }
-
-  public void waitForElementVisible(By locator) {
-    wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-  }
-
-  public void waitForElementNotVisible(WebElement element) {
-    wait.until(ExpectedConditions.invisibilityOf(element));
+  public void acceptCookies() {
+    By cookiesBtn = By.xpath("//*[@id='__next']/div[1]/div[3]/div/div/div/button");
+    waitForCondition(ExpectedConditions.visibilityOf(driver.findElement(cookiesBtn)));
+    driver.findElement(cookiesBtn).click();
   }
 }

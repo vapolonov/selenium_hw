@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>autoInput</artifactId>
+  <artifactId>selenium_hw</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -21,6 +21,7 @@
     <spotbugs.version>4.9.3.2</spotbugs.version>
     <mavencheckstyle.version>3.6.0</mavencheckstyle.version>
     <assertj.version>3.27.3</assertj.version>
+    <jsoup.version>1.21.1</jsoup.version>
     <base.url>https://otus.ru</base.url>
     <timeout>10</timeout>
   </properties>
@@ -48,8 +49,13 @@
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
-      <artifactId>assertj-guava</artifactId>
+      <artifactId>assertj-core</artifactId>
       <version>${assertj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>${jsoup.version}</version>
     </dependency>
   </dependencies>
 
@@ -61,8 +67,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler.version}</version>
         <configuration>
-          <target>${maven.compiler.target}</target>
-          <source>${maven.compiler.source}</source>
+          <target>16</target>
+          <source>16</source>
         </configuration>
       </plugin>
 

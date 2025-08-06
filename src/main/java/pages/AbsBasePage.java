@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class AbsBasePage<T> extends AbsCommon {
 
-  private final String baseUrl = System.getProperty("base.url");
+  private final String baseUrl = System.getProperty("base.url", "https://otus.ru");
 
   public AbsBasePage(WebDriver driver) {
     super(driver);
@@ -28,6 +28,7 @@ public abstract class AbsBasePage<T> extends AbsCommon {
     driver.get(baseUrl + getPath());
     waiter.waitUntilPageIsReady();
     waiter.waitForJQueryCompletes();
+    waiter.acceptCookies();
     return (T) this;
   }
 }
