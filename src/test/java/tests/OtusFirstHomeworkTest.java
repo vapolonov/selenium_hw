@@ -2,6 +2,7 @@ package tests;
 
 import com.google.inject.Inject;
 import components.MainMenu;
+import components.Sidebar;
 import extensions.UIExtension;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,9 @@ public class OtusFirstHomeworkTest {
   @Inject
   private MainMenu mainMenu;
 
+  @Inject
+  private Sidebar sidebar;
+
   @Test
   public void courseShouldFindByNameInCatalog() {
     String courseName = "Java QA Engineer. Professional";
@@ -45,7 +49,7 @@ public class OtusFirstHomeworkTest {
     mainPage.open();
     mainMenu.selectMenuItem();
     String category = mainMenu.selectRandomCategory();
-    catalogPage.checkCourseCategory(category);
+    sidebar.checkCourseCategory(category);
   }
 
   @Test

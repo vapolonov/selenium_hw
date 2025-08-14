@@ -55,7 +55,7 @@ public class Waiters {
   }
 
   public void acceptCookies() {
-    By cookiesBtn = By.xpath("//*[@id='__next']/div[1]/div[3]/div/div/div/button");
+    By cookiesBtn = By.xpath("//*[@id='__next']/div[1]/div[4]/div/div/div/button");
     waitForCondition(ExpectedConditions.visibilityOf(driver.findElement(cookiesBtn)));
     driver.findElement(cookiesBtn).click();
   }

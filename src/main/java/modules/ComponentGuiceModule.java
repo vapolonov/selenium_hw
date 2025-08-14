@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import components.MainMenu;
+import components.Sidebar;
 import org.openqa.selenium.WebDriver;
 
 public class ComponentGuiceModule extends AbstractModule {
@@ -15,7 +16,13 @@ public class ComponentGuiceModule extends AbstractModule {
 
   @Provides
   @Singleton
-  public MainMenu  getMainMenu() {
+  public MainMenu getMainMenu() {
     return new MainMenu(driver);
+  }
+
+  @Provides
+  @Singleton
+  public Sidebar getSidebar() {
+    return new Sidebar(driver);
   }
 }

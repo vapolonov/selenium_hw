@@ -3,7 +3,6 @@ package pages;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import annotations.Path;
-import org.assertj.core.api.Assertions;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.openqa.selenium.By;
@@ -33,9 +32,6 @@ public class CatalogPage extends AbsBasePage<CatalogPage> {
   @FindBy(xpath = "//main//section[2]")
   private WebElement catalogSection;
 
-  @FindBy(xpath = "(//div[@class='ReactCollapse--content'])[1]")
-  WebElement sidebar;
-
   @FindBy(xpath = "//section[2]//a/div[2]/div/div")
   List<WebElement> coursesDates;
 
@@ -54,16 +50,6 @@ public class CatalogPage extends AbsBasePage<CatalogPage> {
     return this;
   }
 
-  public void checkCourseCategory(String category) {
-    String label = category.split(" \\(")[0];
-    if ("Специализации".equals(label) || "Подготовительные курсы".equals(label)) {
-      label = "Все направления";
-    }
-    Assertions.assertThat(sidebar.findElement(By.xpath(String.format(".//*[text()='%s']/preceding-sibling::div//input", label)))
-            .isSelected())
-        .isTrue();
-  }
-
   public List<WebElement> getEarliestCourses() {
     return getCoursesByExtremeDate(Comparator.naturalOrder());
   }
@@ -73,18 +59,16 @@ public class CatalogPage extends AbsBasePage<CatalogPage> {
   }
 
   private List<WebElement> getCoursesByExtremeDate(Comparator<LocalDate> comparator) {
-    Map<WebElement, LocalDate> courseDateMap = coursesDates.stream()
-        .collect(Collectors.toMap(
-            course -> course,
-            course -> parseCourseDate(course)
-        ));
+    List<Map.Entry<WebElement, LocalDate>> coursesWithDates = coursesDates.stream()
+        .map(course -> Map.entry(course, parseCourseDate(course)))
+        .toList();
 
-    Optional<LocalDate> extremeDate = courseDateMap.values().stream()
-        .min(comparator); // .min() с comparator = naturalOrder → earliest, reverseOrder → latest
-
-    return extremeDate
-        .map(date -> courseDateMap.entrySet().stream()
-            .filter(entry -> entry.getValue().equals(date))
+    return coursesWithDates.stream()
+        .reduce((entry1, entry2) ->
+            comparator.compare(entry1.getValue(), entry2.getValue()) <= 0 ? entry1 : entry2
+        )
+        .map(extremeEntry -> coursesWithDates.stream()
+            .filter(entry -> entry.getValue().equals(extremeEntry.getValue()))
             .map(Map.Entry::getKey)
             .collect(Collectors.toList()))
         .orElse(List.of());
